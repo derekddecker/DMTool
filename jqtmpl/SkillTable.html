@@ -1,0 +1,45 @@
+<div id="SkillTableWrapper" class="card editableWrapper" data-player-observer="true">
+    <h3>Skills</h3>
+    <table id="skill-table">
+        <thead>
+            <tr>
+                <th>Bonus</th>
+                <th>Skill Name</th>
+                <th>Mod +<br/>.5 Lvl</th>
+                <th>Trained</th>
+                <th>Armor<br/>Penalty</th>
+                <th>Misc</th>
+            </tr>
+        </thead>
+    {{each( index ) Skills}}
+        <tr {{if index%2 == 0}} class="odd" {{/if}}>
+            <td class="large">${Bonus}</td>
+            <td>${SkillName}</td>
+            <td>${ModifierPlusHalfLevel}</td>
+            <td>
+                <div class="editable">
+                    <input type="checkbox" name="Trained" rel="Skills.${index}" {{if Trained}}checked="checked"{{/if}} />
+                </div>
+            </td>
+            <td>
+                <div class="editable">
+                    <input type="text" name="ArmorPenalty" rel="Skills.${index}" value="${ArmorPenalty}" />
+                    <div class="control-wrapper number">
+                        <button class="control increase" data-control="increase" rel="ArmorPenalty"></button>
+                        <button class="control decrease" data-control="decrease" rel="ArmorPenalty"></button>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="editable">
+                    <input type="text" name="Misc" rel="Skills.${index}" value="${Misc}" />
+                    <div class="control-wrapper number">
+                        <button class="control increase" data-control="increase" rel="Misc"></button>
+                        <button class="control decrease" data-control="decrease" rel="Misc"></button>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    {{/each}}
+    </table>
+ </div>

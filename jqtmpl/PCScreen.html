@@ -1,0 +1,24 @@
+{{each(playerIndex, player) EncounterPlayers}}
+       {{if player.hasOwnProperty('Enemies')}}
+            <div class="mob">
+                <span class="mob-label">Mob</span>
+                {{if Enemies.length}}
+                <ul class="enemies-wrapper">
+                    {{each(enemyIndex, Enemies) Enemies}}
+                        <li class="{{if isBloodied}}bloodied {{/if}}{{if isDead}}dead {{/if}}">
+                            {{if TypeRevealed}}${CharacterName} (${PCFacingName}){{else}}${PCFacingName}{{/if}}
+                            {{if Conditions.length}}
+                            <table class="conditions" width="100%">
+                                <tr><td width="${ parseFloat((1/Conditions.length)*100) }%">{{html Util.joinOnProperty('</td><td width="' + parseFloat((1/Conditions.length)*100) + '%">', Conditions, 'Name')}}</td></tr>
+                                <tr><td width="${ parseFloat((1/Conditions.length)*100) }%">by {{html Util.joinOnProperty('</td><td width="' + parseFloat((1/Conditions.length)*100) + '%">by ', Conditions, 'CastBy.CharacterName')}}</td></tr>
+                            </table>
+                            {{/if}}
+                        </li>
+                    {{/each}}
+                </ul>
+                {{/if}}
+            </div>
+       {{else}}
+            <div class="player">${Label}</div>
+       {{/if}}
+{{/each}}

@@ -1,0 +1,18 @@
+<ul id="CharacterListWrapper" class="character-list" data-players-observer="true" data-mobs-observer="true">
+{{each( index, value ) $item.data.Players}}
+    <li data-type="Player" rel="${index}"{{if CharacterName === DMTool.controller.CurrentPlayer.CharacterName && !DMTool.controller.CurrentMob}} class="selected"{{/if}}>
+        <div class="character-name">${CharacterName}</div>
+        <span class="real-name">${RealName}</span>
+        <div class="delete-character"></div>
+    </li>
+{{/each}}
+{{each( index, value ) Mobs}}
+    {{if Label}}
+    <li data-type="Mob" rel="${index}"{{if DMTool.controller.CurrentMob && Label === DMTool.controller.CurrentMob.Label}} class="selected"{{/if}}>
+        <div class="mob-label">${Label}</div>
+        <div class="mob-size">${Enemies.length} enemies</div>
+        <div class="delete-mob"></div>
+    </li>
+    {{/if}}
+{{/each}}
+</ul>

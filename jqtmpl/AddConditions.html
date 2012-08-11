@@ -1,0 +1,32 @@
+<div id="AddConditionsWrapper" class="fleft">
+    <div id="add-conditions" class="card">
+        <h3>Add Conditions to ${CharacterName}</h3>
+        <div class="fleft">
+            <select id="condition-list" multiple="multiple" size="18">
+            {{each(conditionIndex, value) ConditionUtil.PresetConditions}}
+                <option{{if conditionIndex==0}} selected="selected"{{/if}}>${Name}</option>
+            {{/each}}
+            </select>
+        </div>
+        <div class="fleft">
+            <div>
+                <input type="checkbox" id="save-ends" />
+                <label for="save-ends">Save Ends</label>
+                <div class="clear"></div>
+            </div>
+            <div>
+                <input type="checkbox" id="ongoing" />
+                <label for="ongoing">Ongoing</label>
+                <div class="clear"></div>
+            </div>
+            <div>
+                <input type="checkbox" id="sustainable" />
+                <label for="sustainable">Sustainable</label>
+                <div class="clear"></div>
+            </div>
+            <button id="add-condition">Add</button> <button id="close-condition-add">Finished</button>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>

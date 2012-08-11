@@ -1,0 +1,74 @@
+<div id="AddMobWrapper" class="card fleft">
+    <h3>Add Mob</h3>
+    <p>A "Mob" is a group of the same type of enemy. They all roll the same initiative.</p>
+    <label for="mob-label">Mob Name</label><input type="text" id="mob-label" name="Label" value="${Label}" />
+    <div class="clear"></div>
+    <div class="editable"><label for="page-label">Page #</label><input type="text" name="Page" id="page-label" value="${Page}" size="3" /></div>
+    <div class="clear"></div>
+    <button id="add-enemy">[+] Add Enemy To Mob</button>
+    <div class="clear"></div>
+    <table id="mob-enemy-list">
+        {{if Enemies.length > 0}}
+            <thead>
+                <tr>
+                    <td>Name</td>
+                    <td>Label</td>
+                    <td>HP</td>
+                    <td>XPValue</td>
+                    <td>AC</td>
+                    <td>FORT</td>
+                    <td>REF</td>
+                    <td>WILL</td>
+                    <td>&nbsp;</td>
+                </tr>
+            </thead>
+            <tbody>
+            {{each( index ) Enemies}}
+                <tr rel="${index}" {{if index%2 == 0}} class="odd" {{/if}}>
+                    <td class="large">
+                        <div class="editable">
+                            <input type="text" name="CharacterName" rel="Enemies.${index}" value="${CharacterName}" />
+                        </div>
+                    </td>
+                    <td class="large">
+                        <div class="editable">
+                            <input type="text" name="PCFacingName" rel="Enemies.${index}" value="${PCFacingName}" />
+                        </div>
+                    </td>
+                    <td>
+                        <div class="editable">
+                            <input type="text" name="HP" rel="Enemies.${index}" value="${HP}" size="3" />
+                        </div>
+                    </td>
+                    <td>
+                        <div class="editable">
+                            <input type="text" name="XPValue" rel="Enemies.${index}" value="${XPValue}" size="3" />
+                        </div>
+                    </td>
+                    <td>
+                        <div class="editable">
+                            <input type="text" name="Score" rel="Enemies.${index}.Defenses.0" value="${Defenses[0].Score}" size="3" />
+                        </div>
+                    </td>
+                    <td>
+                        <div class="editable">
+                            <input type="text" name="Score" rel="Enemies.${index}.Defenses.1" value="${Defenses[1].Score}" size="3" />
+                        </div>
+                    </td>
+                    <td>
+                        <div class="editable">
+                            <input type="text" name="Score" rel="Enemies.${index}.Defenses.2" value="${Defenses[2].Score}" size="3" />
+                        </div>
+                    </td>
+                    <td>
+                        <div class="editable">
+                            <input type="text" name="Score" rel="Enemies.${index}.Defenses.3" value="${Defenses[3].Score}" size="3" />
+                        </div>
+                    </td>
+                    <td>[<a href="javascript:;" class="delete-enemy">Delete</a>]</td>
+                </tr>
+            {{/each}}
+            </tbody>
+        {{/if}}
+    </table>
+</div>

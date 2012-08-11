@@ -1,0 +1,51 @@
+<div id="CharacterInfoWrapper" class="card editableWrapper" data-player-observer="true">
+
+
+    <div id="CharacterName">
+        <div class="editable">
+            <input type="text" name="CharacterName" value="${CharacterName}" />
+        </div>
+    </div>
+    <div id="RealName">
+        <div class="editable">
+            <input type="text" name="RealName" value="${RealName}" />
+        </div>
+    </div>
+
+    <div class="clear"></div>
+
+    <div id="Level">Level ${Level}
+        <div class="experience-container">
+            <div class="editable">
+                XP: <input type="text" name="Experience" value="${Experience}" size="5"/>
+            </div>
+        </div>
+        <div class="editable">
+            <select name="Race" id="current-player-race"></select>
+        </div>
+        <div class="editable">
+            <select name="Class" id="current-player-class"></select>
+        </div>
+    </div>
+<!--
+    <div id="Experience">${Experience}</div>
+
+    <div id="Size">${Size}</div>
+
+    <div id="Age">${Age}</div>
+
+    <div id="Gender">${Gender}</div>
+
+    <div id="Height">${Height}</div>
+
+    <div id="Weight">${Weight}</div>
+
+    <div id="Alignment">${Alignment}</div>
+
+    <div id="Diety">${Diety}</div>
+
+    <div id="Party">${Party}</div>
+-->
+    <div id="Initiative">Base Initiative: ${Initiative.Score}</div>
+
+</div>

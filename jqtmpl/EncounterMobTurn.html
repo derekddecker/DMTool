@@ -1,0 +1,58 @@
+<!--
+    3. Go through turns in order (or be able to go back)
+        a. Box to enter HP deductions per turn
+        b. Checkmarks to indicate marks and effects
+    Mobs:
+        For each enemy -
+            Enemy Name, Hit Points (box to deduct), Conditions, Page # if applicable
+-->
+<div id="EncounterMobTurnWrapper">
+  <h1>${Label} (Page #${Page})</h1>
+ {{each( index ) Enemies}}
+    <div id="Enemy${index}Wrapper" class="card fleft enemy-info-wrapper">
+        ${CharacterName} (${PCFacingName}{{if TypeRevealed}} - Revealed{{/if}})
+        <div class="clear"></div>
+        <div class="Stats">
+            {{tmpl(Enemies[index]) "#EnemyStatsInfo"}}
+        </div>
+        <div class="clear"></div>
+        {{if Conditions.length}}
+        <div class="ConditionWrapper">
+            <h3>Conditions</h3>
+            <table>
+                <thead><tr><th>Condition</th><th>Cast By</th><th>Save Ends</th><th>Ongoing</th><th>Sustainable</th></tr></thead>
+                <tbody>
+                    {{each( index ) Conditions}}
+                    <tr><td>${Name}</td><td>${CastBy.CharacterName}</td><td>{{if SaveEnds}}Yes{{/if}}</td><td>{{if Ongoing}}Yes{{/if}}</td><td>{{if Sustainable}}Yes{{/if}}</td><td><button class="saved" rel="${index}">Saved</button></td></tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+        {{/if}}
+        <div class="clear"></div>
+        <div class="DefenseTableWrapper">
+            <h3>Defenses</h3>
+            <table id="defense-table">
+                <thead>
+                <tr>
+                    <th>Defense</th>
+                    <th>Score</th>
+                </tr>
+                </thead>
+                {{each( index ) Defenses}}
+                <tr {{if index%2 == 0}} class="odd" {{/if}}>
+                <td>${Name}</td>
+                <td>${Score}</td>
+                </tr>
+                {{/each}}
+            </table>
+        </div>
+        <div class="clear"></div>
+        <input class="remove-hitpoints" style="width:50px;"/> <button class="deduct-hp">Take Damage</button>
+        <div class="clear"></div>
+        <button class="kill-enemy">Dead</button>
+        {{if !TypeRevealed}}<button class="reveal">Reveal Character Type</button>{{/if}}
+    </div>
+ {{/each}}
+ <div class="clear"></div>
+</div>

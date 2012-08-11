@@ -1,0 +1,39 @@
+<div id="AbilityScoresWrapper" class="card editableWrapper" data-player-observer="true">
+    <h3>Abilities</h3>
+    <table id="ability-table">
+        <thead>
+            <tr>
+                <th>Score</th>
+                <th>Base</th>
+                <th>Ability</th>
+                <th>Modifier</th>
+                <th>Mod<br/>+1/2 Lvl</th>
+            </tr>
+        </thead>
+    {{each( index, value ) AbilityScores}}
+        <tr {{if index%2 == 0}} class="odd" {{/if}}>
+            <td class="large">${Score}</td>
+            <td>
+                <div class="editable">
+                    <input type="text" name="BaseScore" rel="AbilityScores.${index}" value="${BaseScore}" />
+                    <div class="control-wrapper number">
+                        <button class="control increase" data-control="increase" rel="BaseScore"></button>
+                        <button class="control decrease" data-control="decrease" rel="BaseScore"></button>
+                    </div>
+                </div>
+            </td>
+            <td>${Ability}</td>
+            <td>
+                <div class="editable">
+                    <input type="text" name="Modifier" rel="AbilityScores.${index}" value="${Modifier}" />
+                    <div class="control-wrapper number">
+                        <button class="control increase" data-control="increase" rel="Modifier"></button>
+                        <button class="control decrease" data-control="decrease" rel="Modifier"></button>
+                    </div>
+                </div>
+            </td>
+            <td>${ModifierPlusHalfLevel}</td>
+        </tr>
+    {{/each}}
+    </table>
+</div>

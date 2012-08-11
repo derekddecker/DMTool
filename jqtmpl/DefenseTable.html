@@ -1,0 +1,69 @@
+<div id="DefenseTableWrapper" class="card editableWrapper" data-player-observer="true">
+    <h3>Defenses</h3>
+    <table id="defense-table">
+        <thead>
+            <tr>
+                <th>Score</th>
+                <th>Defense</th>
+                <th>10+.5Lvl</th>
+                <th>Armor<br/>/Abil</th>
+                <th>Class</th>
+                <th>Feat</th>
+                <th>Enh</th>
+                {{each( index ) Defenses.Misc}}
+                <th>Misc ${index}</th>
+                {{/each}}
+            </tr>
+        </thead>
+    {{each( index ) Defenses}}
+        <tr {{if index%2 == 0}} class="odd" {{/if}}>
+            <td>${Score}</td>
+            <td>${Name}</td>
+            <td>${TenPlusHalf}</td>
+            <td>
+                {{if Name == 'AC'}}
+                <div class="editable">
+                    <input type="text" name="ArmorAbilityBonus" rel="Defenses.${index}" value="${ArmorAbilityBonus}" />
+                    <div class="control-wrapper number">
+                        <button class="control increase" data-control="increase" rel="ArmorAbilityBonus"></button>
+                        <button class="control decrease" data-control="decrease" rel="ArmorAbilityBonus"></button>
+                    </div>
+                </div>
+                {{else}}
+                ${ArmorAbilityBonus}
+                {{/if}}
+            </td>
+            <td>
+                <div class="editable">
+                    <input type="text" name="ClassBonus" rel="Defenses.${index}" value="${ClassBonus}" />
+                    <div class="control-wrapper number">
+                        <button class="control increase" data-control="increase" rel="ClassBonus"></button>
+                        <button class="control decrease" data-control="decrease" rel="ClassBonus"></button>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="editable">
+                    <input type="text" name="FeatBonus" rel="Defenses.${index}" value="${FeatBonus}" />
+                    <div class="control-wrapper number">
+                        <button class="control increase" data-control="increase" rel="FeatBonus"></button>
+                        <button class="control decrease" data-control="decrease" rel="FeatBonus"></button>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="editable">
+                    <input type="text" name="Enh" rel="Defenses.${index}" value="${Enh}" />
+                    <div class="control-wrapper number">
+                        <button class="control increase" data-control="increase" rel="Enh"></button>
+                        <button class="control decrease" data-control="decrease" rel="Enh"></button>
+                    </div>
+                </div>
+            </td>
+            {{each( index ) Defenses.Misc}}
+            <td>${Score}</td>
+            {{/each}}
+        </tr>
+    {{/each}}
+    </table>
+ </div>

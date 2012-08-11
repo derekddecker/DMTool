@@ -1,0 +1,21 @@
+<!--
+    1. Enter Initiatives
+-->
+<div id="EncounterInitiativeWrapper" class="card">
+    <h3>Roll Initiative!</h3>
+    <div class="fleft">
+        <table>
+            <thead><tr><th>Player / Initiative Roll (total)</th></tr></thead>
+        {{each( index, value ) Players}}
+            <tr>
+                <td><input type="checkbox" id="Player${index}Initiative" rel="Players.${index}" name="EncounterPlayer" /> <label for="Player${index}Initiative">${Label}</label> <input type="text" name="Total" rel="Players.${index}.Initiative" value="${Total}" size="3" /></td>
+            </tr>
+        {{/each}}
+        </table>
+        <button>Let's start this shit!</button>
+    </div>
+    <div class="fleft">
+        <div id="initiative-image"><img src="images/roll-initiative.jpg" /></div>
+    </div>
+    <div class="clear"></div>
+</div>

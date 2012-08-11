@@ -1,0 +1,38 @@
+<div id="EncounterAttackWorkspaceWrapper" class="card fleft">
+    <h3>Hit Enemies</h3>
+    <table width="100%">
+    {{each( mobIndex, mob ) EncounterMobs}}
+        {{each( index, enemy ) Enemies}}
+            {{if isDead === false}}
+            <tr>
+                <td><input type="checkbox" id="${mobIndex}.Enemies.${index}" name="HitCharacter" /></td>
+                <td style="width:200px;text-align:left;vertical-align:top">
+                    <label for="${mobIndex}.Enemies.${index}">${CharacterName}</label>
+                    {{if Conditions.length}}
+                    <ul class="current-conditions">
+                        {{each( conIndex, condition ) Conditions}}
+                            <li>${Name} {{if Ongoing}}[O]{{/if}}{{if Sustainable}}[S]{{/if}}{{if SaveEnds}}[SE]{{/if}}</li>
+                        {{/each}}
+                    {{/if}}
+                    </ul>
+                    <div class="clear"></div>
+                    <div class="Stats">
+                        {{tmpl(Enemies[index]) "#EnemyStatsInfo"}}
+                    </div>
+                </td>
+            </tr>
+            <tr class="hidden" rel="${mobIndex}.Enemies.${index}">
+                <td colspan="2" class="action-cell">
+                    Damage Points: <input type="text" size="2" name="Damage" class="Damage"/>
+                    <button class="add-conditions">[+] Conditions</button>
+                    <div class="clear"></div>
+                    <table class="condition-list"></table>
+                </td>
+            </tr>
+            {{/if}}
+        {{/each}}
+    {{/each}}
+    </table>
+    <button id="apply-damage" class="fright">Apply Damage &amp; Conditions</button>
+    <div class="clear"></div>
+</div>

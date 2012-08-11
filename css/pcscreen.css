@@ -1,0 +1,11 @@
+body{ background-color:#447799  ; }
+#data h1{ padding:200px 0; text-shadow:1px 1px 0px #333; font-weight:700; margin:0 auto; display:block; color:#fff; font-size:52pt; text-align:center; font-family:"HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;; }
+    .player,.mob{ position:relative; box-shadow:0px 0px 3px #efefef; border-radius:3px; padding:5px; margin:3px auto;width: 450px;text-align: center;font-size: 28px;border: 1px solid; background:#fff; color:#333; text-shadow:1px 1px 0px #fff; }
+    .mob{background-color:#f08080;color:#000;text-shadow:none;}
+    .mob-label{ position:absolute; top:5px; right:5px; font-size:20px; font-style:italic; }
+        .mob ul li{ margin:3px 0; padding:5px; }
+    .conditions{font-size:14px;font-style:italic;text-shadow:none!important;}
+        .conditions td{text-align:center;}
+    #data > div:first-child{ background:#ffab4a; color:#fff; margin-top:0; padding:10px; font-size:52pt; text-shadow:1px 1px 0px #333; border-radius:0 0 10px 10px; margin-bottom:10px; width:700px; }
+    .bloodied{ background-color:#f00; color:#fff; text-shadow:1px 1px 0px #333; border-radius:3px; }
+    .dead{ background-color:#333; color:#fff; text-shadow:1px 1px 0px #111; text-decoration:line-through; }

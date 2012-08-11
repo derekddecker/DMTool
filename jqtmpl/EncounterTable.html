@@ -1,0 +1,20 @@
+<div id="EncounterTableWrapper">
+
+    <div id="EncounterPlayers">
+        {{tmpl "#EncounterPlayerList"}}
+    </div>
+    <div class="clear"></div>
+    <div id="PlayerInformation" class="card fnone">
+        {{if EncounterPlayers[0].hasOwnProperty('RealName')}}
+            {{tmpl(EncounterPlayers[0]) "#EncounterPlayerTurn"}}
+        {{/if}}
+        {{if EncounterPlayers[0].hasOwnProperty('Enemies')}}
+            {{tmpl(EncounterPlayers[0]) "#EncounterMobTurn"}}
+        {{/if}}
+        <div id="EncounterActions">
+            <button id="previous-turn" title="[ Ctrl+Shift+Left Arrow ]">&laquo; Previous Turn</button>
+            <button id="next-turn" title="[ Ctrl+Shift+Right Arrow ]">Next Turn &raquo;</button>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>

@@ -1,0 +1,8 @@
+<div id="EncounterPlayersWrapper">
+    <ul>
+    {{each( index, value ) DMTool.controller.CurrentEncounter.EncounterPlayers}}
+        <li><a href="javascript:;" rel="${index}"{{if index == 0}} class="active"{{/if}}>${Label}</a></li>
+    {{/each}}
+        <div class="clear"></div>
+    </ul>
+</div>

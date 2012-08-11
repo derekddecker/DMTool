@@ -1,0 +1,100 @@
+<!--
+    3. Go through turns in order (or be able to go back)
+        a. Box to enter HP deductions per turn
+        b. Checkmarks to indicate marks and effects
+-->
+<div id="EncounterPlayerTurnWrapper">
+  <h1>${Label}</h1>
+  <div id="SkillTableWrapper" class="card fleft">
+        <h3>Skills</h3>
+        <table id="skill-table">
+            <thead>
+            <tr>
+                <th>Bonus</th>
+                <th>Skill Name</th>
+                <th>Mod +<br/>.5 Lvl</th>
+                <th>Trained</th>
+                <th>Armor<br/>Penalty</th>
+                <th>Misc</th>
+            </tr>
+            </thead>
+            {{each( index ) Skills}}
+            <tr {{if index%2 == 0}} class="odd" {{/if}}>
+            <td class="large">${Bonus}</td>
+            <td>${SkillName}</td>
+            <td>${ModifierPlusHalfLevel}</td>
+            <td>{{if Trained}}X{{/if}}</td>
+            <td>${ArmorPenalty}</td>
+            <td>${Misc}</td>
+            </tr>
+            {{/each}}
+        </table>
+  </div>
+  <div class="fleft">
+      <div id="AbilityScoresWrapper" class="card">
+            <h3>Abilities</h3>
+            <table id="ability-table">
+                <thead>
+                <tr>
+                    <th>Score</th>
+                    <th>Base</th>
+                    <th>Ability</th>
+                    <th>Modifier</th>
+                    <th>Mod<br/>+1/2 Lvl</th>
+                </tr>
+                </thead>
+                {{each( index, value ) AbilityScores}}
+                <tr {{if index%2 == 0}} class="odd" {{/if}}>
+                <td class="large">${Score}</td>
+                <td>${BaseScore}</td>
+                <td>${Ability}</td>
+                <td>${Modifier}</td>
+                <td>${ModifierPlusHalfLevel}</td>
+                </tr>
+                {{/each}}
+            </table>
+      </div>
+      <div id="DefenseTableWrapper" class="card">
+            <h3>Defenses</h3>
+            <table id="defense-table">
+                <thead>
+                <tr>
+                    <th>Score</th>
+                    <th>Defense</th>
+                    <th>10+.5Lvl</th>
+                    <th>Armor<br/>/Abil</th>
+                    <th>Class</th>
+                    <th>Feat</th>
+                    <th>Enh</th>
+                    {{each( index ) Defenses.Misc}}
+                    <th>Misc ${index}</th>
+                    {{/each}}
+                </tr>
+                </thead>
+                {{each( index ) Defenses}}
+                <tr {{if index%2 == 0}} class="odd" {{/if}}>
+                <td>${Score}</td>
+                <td>${Name}</td>
+                <td>${TenPlusHalf}</td>
+                <td>
+                    {{if Name == 'AC'}}
+                    ${ArmorAbilityBonus}
+                    {{else}}
+                    ${ArmorAbilityBonus}
+                    {{/if}}
+                </td>
+                <td>${ClassBonus}</td>
+                <td>${FeatBonus}</td>
+                <td>${Enh}</td>
+                {{each( index ) Defenses.Misc}}
+                <td>${Score}</td>
+                {{/each}}
+                </tr>
+                {{/each}}
+            </table>
+      </div>
+      <button id="attack">Make An Attack!</button>
+  </div>
+  <div id="AttackWorkspace" class="fleft"></div>
+</div>
+<div class="clear"></div>
